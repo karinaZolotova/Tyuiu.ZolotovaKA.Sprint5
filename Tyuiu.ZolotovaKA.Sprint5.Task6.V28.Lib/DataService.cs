@@ -7,12 +7,18 @@ namespace Tyuiu.ZolotovaKA.Sprint5.Task6.V28.Lib
     {
         public int LoadFromDataFile(string path)
         {
-            path = @"C:\DataSprint5\InPutDataFileTask6V28.txt";
-            string fileContent = File.ReadAllText(path);
-            MatchCollection nums = Regex.Matches(fileContent, @"\b\d{4}\b");
-            return nums.Count;
-
-          
+            int count = 0;
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string pattern = @"\b\d{4}\b";
+                    MatchCollection matches = Regex.Matches(line, pattern);
+                    count = matches.Count;
+                }
+            }
+            return count;
 
         }
     }

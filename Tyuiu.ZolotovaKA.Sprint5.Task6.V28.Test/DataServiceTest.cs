@@ -5,27 +5,22 @@ namespace Tyuiu.ZolotovaKA.Sprint5.Task6.V28.Test
     public class DataServiceTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CheckLoadFromDataFileValid()
         {
             string path = @"C:\DataSprint5\InPutDataFileTask6V28.txt";
-
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
-            bool wait = true;
-            Assert.AreEqual(wait, fileExists);
-
-
+            bool wait1 = true;
+            Assert.AreEqual(wait1, fileExists);
         }
         [TestMethod]
-        public void CheckResult()
+        public void CheckResultsValid()
         {
             DataService ds = new DataService();
-
             string path = @"C:\DataSprint5\InPutDataFileTask6V28.txt";
-
-            var res = ds.LoadFromDataFile(path);
-            int wait = 3;
-            Assert.AreEqual(wait, res);
+            double res = ds.LoadFromDataFile(path);
+            double wait2 = 3;
+            Assert.AreEqual(wait2, res);
         }
     }
 }
