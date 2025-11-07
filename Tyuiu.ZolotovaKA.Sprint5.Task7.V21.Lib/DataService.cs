@@ -6,34 +6,32 @@ namespace Tyuiu.ZolotovaKA.Sprint5.Task7.V21.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string pathsavefile = @"C:\Users\AeroC\source\repos\Tyuiu.ZolotovaKA.Sprint5\Tyuiu.ZolotovaKA.Sprint5.Task7.V21\bin\Debug\net8.0\OutPutDataFileTask7V21.txt";
-
-            FileInfo fileInfo = new FileInfo(pathsavefile);
+            string pathSaveFile = Path.GetTempFileName();
+            FileInfo fileInfo = new FileInfo(pathSaveFile);
             bool fileExists = fileInfo.Exists;
             if (fileExists)
             {
-                File.Delete(pathsavefile);
+                File.Delete(pathSaveFile);
             }
-
             string strLine = "";
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
+
                     for (int i = 0; i < line.Length; i++)
                     {
-                        if ((line[i] != ','))
+                        if (line[i] != '.' && line[i] != '-' && line[i] != ',' && line[i] != '!' && line[i] != '?')
                         {
                             strLine += line[i];
                         }
                     }
-                    File.AppendAllText(pathsavefile, strLine + Environment.NewLine);
+                    File.AppendAllText(pathSaveFile, strLine + Environment.NewLine);
                     strLine = "";
                 }
             }
-            return pathsavefile;
-
+            return pathSaveFile;
         }
     }
 }
