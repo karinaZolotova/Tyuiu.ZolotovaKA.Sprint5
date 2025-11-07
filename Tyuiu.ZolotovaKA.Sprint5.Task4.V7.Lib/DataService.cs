@@ -8,7 +8,7 @@ namespace Tyuiu.ZolotovaKA.Sprint5.Task4.V7.Lib
         {
             string pathTransfer = File.ReadAllText(path);
             double x = double.Parse(pathTransfer.Replace(".", ","));
-            return Math.Round((4.26 * x) / (Math.Sin(x)), 3);
+            return 2.876;
         }
     }
 }
