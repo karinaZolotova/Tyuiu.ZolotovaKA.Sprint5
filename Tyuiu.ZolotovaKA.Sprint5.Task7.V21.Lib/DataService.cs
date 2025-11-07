@@ -6,15 +6,16 @@ namespace Tyuiu.ZolotovaKA.Sprint5.Task7.V21.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string pathsave = @"C:\Users\meteo\source\repos\Tyuiu.ShadrinEA.Sprint5\Tyuiu.ShadrinEA.Sprint5.Task7V21\bin\Debug\OutPutFileTask7V21.txt";
-            FileInfo fi = new FileInfo(pathsave);
-            bool fileExists = fi.Exists;
+            string pathsavefile = @"C:\Users\AeroC\source\repos\Tyuiu.ZolotovaKA.Sprint5\Tyuiu.ZolotovaKA.Sprint5.Task7.V21\bin\Debug\net8.0\OutPutDataFileTask7V21.txt";
+
+            FileInfo fileInfo = new FileInfo(pathsavefile);
+            bool fileExists = fileInfo.Exists;
             if (fileExists)
             {
-                File.Delete(pathsave);
+                File.Delete(pathsavefile);
             }
 
-            string strline = "";
+            string strLine = "";
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
@@ -22,18 +23,17 @@ namespace Tyuiu.ZolotovaKA.Sprint5.Task7.V21.Lib
                 {
                     for (int i = 0; i < line.Length; i++)
                     {
-                        if (line[i] != '.' && line[i] != ',' && line[i] != '!' && line[i] != '?' && line[i] != ':' && line[i] != ';' && line[i] != '/' && line[i] != '-')
+                        if ((line[i] != ','))
                         {
-                            strline = strline + line[i];
+                            strLine += line[i];
                         }
                     }
+                    File.AppendAllText(pathsavefile, strLine + Environment.NewLine);
+                    strLine = "";
                 }
-                File.AppendAllText(pathsave, strline + Environment.NewLine);
-                strline = "";
-
-
             }
-            return pathsave;
+            return pathsavefile;
+
         }
     }
 }

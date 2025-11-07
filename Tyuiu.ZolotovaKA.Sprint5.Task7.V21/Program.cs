@@ -25,8 +25,8 @@ namespace Tyuiu.ZolotovaKA.Sprint5.Task7V21
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
 
-            string path = @"C:\Users\meteo\source\repos\Tyuiu.ShadrinEA.Sprint5\DataSprint5\InPutDataFileTask7V21.txt";
-            string pathsave = @"C:\Users\meteo\source\repos\Tyuiu.ShadrinEA.Sprint5\Tyuiu.ShadrinEA.Sprint5.Task7V21\bin\Debug\OutPutFileTask7V21.txt";
+            string path = @"C:\Users\meteo\source\repos\DataSprint5\InPutDataFileTask7V21.txt";
+            string pathsave = @"C:\Users\meteo\source\repos\.Task7V21\bin\Debug\OutPutFileTask7V21.txt";
 
 
             Console.WriteLine("Данные находятся в файле: " + path);
